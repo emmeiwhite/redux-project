@@ -1,4 +1,4 @@
-import { DECREASE, INCREASE, RESET } from "./actions";
+import { DECREASE, INCREASE, RESET } from "./../actions/actions";
 const initialState = {
   counter: 0,
 };
