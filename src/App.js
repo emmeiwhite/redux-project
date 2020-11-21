@@ -4,7 +4,7 @@ import Counter from "./components/Counter";
 function App() {
   return (
     <div className="App">
-      <h1>Counter App With Redux</h1>
+      <h1>State Managament with Redux</h1>
       <Counter />
     </div>
   );

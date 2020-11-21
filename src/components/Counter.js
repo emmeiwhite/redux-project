@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
+import { DECREASE, INCREASE, RESET } from "./../store/actions";
 
 function Counter(props) {
   return (
@@ -15,20 +16,20 @@ function Counter(props) {
 
 const mapStateToProps = (state) => {
   return {
-    counter: state.counter,
+    counter: state.counter.counter,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     increaseCounter: () => {
-      dispatch({ type: "INCREASE" });
+      dispatch({ type: INCREASE });
     },
     decreaseCounter: () => {
-      dispatch({ type: "DECREASE" });
+      dispatch({ type: DECREASE });
     },
     resetCounter: () => {
-      dispatch({ type: "RESET" });
+      dispatch({ type: RESET });
     },
   };
 };
