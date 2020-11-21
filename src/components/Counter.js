@@ -21,9 +21,10 @@ function Counter(props) {
   );
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ countState: { counter, name } }) => {
   return {
-    counter: state.countState.counter,
+    counter,
+    name,
   };
 };
 

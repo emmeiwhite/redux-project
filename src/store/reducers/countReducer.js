@@ -1,6 +1,7 @@
 import { DECREASE, INCREASE, RESET } from "./../actions/actions";
 const initialState = {
   counter: 0,
+  name: "Imran Rafiq Rather",
 };
 
 const rootReducer = (state = initialState, action) => {
