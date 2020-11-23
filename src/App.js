@@ -2,18 +2,25 @@ import "./App.css";
 import Counter from "./components/Counter";
 import Modal from "./components/Modal";
 import Products from "./components/Products";
+import { connect } from "react-redux";
 
-function App() {
+function App({ isModalOpen }) {
   return (
     <div className="App">
       <p>
         <strong>State Managament with Redux</strong>
       </p>
       <Counter />
-      <Modal />
+      {isModalOpen && <Modal />}
+
       <Products />
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = ({ modalState: { isModalOpen } }) => {
+  return {
+    isModalOpen: isModalOpen,
+  };
+};
+export default connect(mapStateToProps)(App);

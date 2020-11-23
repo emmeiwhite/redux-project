@@ -13,6 +13,7 @@ function Counter({
   decreaseCounter,
   resetCounter,
   openModal,
+  isModalOpen,
 }) {
   return (
     <div
@@ -28,9 +29,13 @@ function Counter({
       <button onClick={increaseCounter}>Increase</button>
       <button onClick={resetCounter}>Reset</button>
       <button onClick={decreaseCounter}>Decrease</button>
-      <div>
-        <button onClick={openModal}>Open Modal</button>
-      </div>
+      {isModalOpen ? (
+        ""
+      ) : (
+        <div>
+          <button onClick={openModal}>Open Modal</button>
+        </div>
+      )}
     </div>
   );
 }
