@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { MODAL_CLOSE } from "./../store/actions/actions";
 import "./Modal.css";
 
-function Modal({ name, modalClose }) {
+function Modal({ heading, text, modalClose }) {
   // const [isOpen, setIsOpen] = useState(false); To be stored in Reducer and handler is also there now
 
   // const handleClick = () => {
@@ -11,7 +11,8 @@ function Modal({ name, modalClose }) {
   // };
   return (
     <main className={`modal`}>
-      <h1>Modal :{name}</h1>
+      <h1>Modal :{heading}</h1>
+      <p>{text}</p>
       <button className="closeBtn" onClick={modalClose}>
         Close Modal
       </button>
@@ -27,10 +28,11 @@ function Modal({ name, modalClose }) {
   );
 }
 
-const mapStateToProps = ({ modalState: { name, isModalOPen } }) => {
+const mapStateToProps = ({ modalState: { text, heading, isModalOPen } }) => {
   return {
-    name: name,
-    isModalOPen: isModalOPen,
+    text,
+    isModalOPen,
+    heading,
   };
 };
 
