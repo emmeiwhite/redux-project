@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
-  DECREASE,
-  INCREASE,
+  decrease,
+  increase,
   MODAL_OPEN,
-  RESET,
+  reset,
 } from "./../store/actions/actions";
 
 function Counter({
@@ -54,16 +54,22 @@ const mapStateToProps = ({
 const mapDispatchToProps = (dispatch) => {
   return {
     increaseCounter: () => {
-      dispatch({ type: INCREASE });
+      dispatch(increase());
     },
     decreaseCounter: () => {
-      dispatch({ type: DECREASE });
+      dispatch(decrease());
     },
     resetCounter: () => {
-      dispatch({ type: RESET });
+      dispatch(reset());
     },
     openModal: () => {
-      dispatch({ type: MODAL_OPEN });
+      dispatch({
+        type: MODAL_OPEN,
+        payload: {
+          heading: "Modal Heading",
+          text: "lorem30 lorem30 lorem 30",
+        },
+      });
     },
   };
 };
