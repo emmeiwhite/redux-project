@@ -1,8 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
-import { DECREASE, INCREASE, RESET } from "./../store/actions/actions";
+import {
+  DECREASE,
+  INCREASE,
+  MODAL_OPEN,
+  RESET,
+} from "./../store/actions/actions";
 
-function Counter(props) {
+function Counter({
+  counter,
+  increaseCounter,
+  decreaseCounter,
+  resetCounter,
+  openModal,
+}) {
   return (
     <div
       style={{
@@ -13,18 +24,25 @@ function Counter(props) {
       }}
     >
       <strong>Counter Component</strong>
-      <h1>{props.counter}</h1>
-      <button onClick={() => props.increaseCounter()}>Increase</button>
-      <button onClick={() => props.resetCounter()}>Reset</button>
-      <button onClick={() => props.decreaseCounter()}>Decrease</button>
+      <h1>{counter}</h1>
+      <button onClick={increaseCounter}>Increase</button>
+      <button onClick={resetCounter}>Reset</button>
+      <button onClick={decreaseCounter}>Decrease</button>
+      <div>
+        <button onClick={openModal}>Open Modal</button>
+      </div>
     </div>
   );
 }
 
-const mapStateToProps = ({ countState: { counter, name } }) => {
+const mapStateToProps = ({
+  countState: { counter, name },
+  modalState: { isModalOpen },
+}) => {
   return {
     counter,
     name,
+    isModalOpen,
   };
 };
 
@@ -38,6 +56,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     resetCounter: () => {
       dispatch({ type: RESET });
+    },
+    openModal: () => {
+      dispatch({ type: MODAL_OPEN });
     },
   };
 };

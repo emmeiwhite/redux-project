@@ -1,0 +1,6 @@
+.modal {
+  background-color: rgb(216, 33, 33);
+  min-height: 30vh;
+  width: 30vw;
+  margin: 0 auto;
+}
