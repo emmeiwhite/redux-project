@@ -1,6 +1,32 @@
-.modal {
-  background-color: rgb(216, 33, 33);
-  min-height: 30vh;
-  width: 30vw;
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: -1;
+}
+.modal-overlay.isModalOpen {
+  opacity: 1;
+  z-index: 10;
+}
+.modal-container {
+  background: #fff;
+  width: 80vw;
+  max-width: 30rem;
   margin: 0 auto;
+  margin-top: -6rem;
+  border-radius: var(--mainBorderRadius);
+  text-align: center;
+  text-transform: capitalize;
+  padding: 4rem 2rem;
+  transition: all 0s ease-in-out;
+}
+.modal-container p {
+  margin-bottom: 5rem;
+}
+.modal-overlay.isModalOpen .modal-container {
+  margin-top: 6rem;
 }

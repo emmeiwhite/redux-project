@@ -2,7 +2,7 @@ import { MODAL_OPEN, MODAL_CLOSE } from "./../actions/actions";
 
 const initialState = {
   isModalOpen: false,
-  heading: "",
+  name: "",
   text: "",
 };
 
@@ -14,7 +14,7 @@ const modalReducer = (state = initialState, action) => {
       return {
         ...state,
         isModalOpen: true,
-        heading: action.payload.heading,
+        name: action.payload.name,
         text: action.payload.text,
       };
     default:

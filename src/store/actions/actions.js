@@ -26,3 +26,11 @@ export const increase = () => {
 export const reset = () => {
   return { type: RESET };
 };
+
+export const modalopen = (name, text) => {
+  return { type: MODAL_OPEN, payload: { name, text } };
+};
+
+export const modalclose = () => {
+  return { type: MODAL_CLOSE };
+};

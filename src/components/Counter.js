@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import {
   decrease,
   increase,
-  MODAL_OPEN,
+  modalopen,
   reset,
 } from "./../store/actions/actions";
 
@@ -33,7 +33,16 @@ function Counter({
         ""
       ) : (
         <div>
-          <button onClick={openModal}>Open Modal</button>
+          <button
+            onClick={() =>
+              openModal(
+                "Emmeis Modal",
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, mollitia? Vero consectetur sunt nobis quos, dicta beatae magni ex reiciendis labore illo eos blanditiis vitae! Eos nam eveniet quae, possimus dolor omnis amet quaerat harum, alias delectus, aliquam voluptatem cum."
+              )
+            }
+          >
+            Open Modal
+          </button>
         </div>
       )}
     </div>
@@ -62,14 +71,8 @@ const mapDispatchToProps = (dispatch) => {
     resetCounter: () => {
       dispatch(reset());
     },
-    openModal: () => {
-      dispatch({
-        type: MODAL_OPEN,
-        payload: {
-          heading: "Modal Heading",
-          text: "lorem30 lorem30 lorem 30",
-        },
-      });
+    openModal: (name, text) => {
+      dispatch(modalopen(name, text));
     },
   };
 };
